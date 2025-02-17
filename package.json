@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node rename-files.js && node convert-images.js && node create-json.js"
   },
   "author": "Wouter Bos",
   "license": "ISC",
