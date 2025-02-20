@@ -1,14 +1,29 @@
 {
   "name": "guo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build": "node rename-files.js && node convert-images.js && node create-json.js"
-  },
+  "version": "0.1.0",
+  "private": true,
   "author": "Wouter Bos",
   "license": "ISC",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prebuild": "node prebuild/rename-files.js && node prebuild/convert-images.js && node prebuild/create-json.js && rsync -urvh --delete assets/photos/web/*.avif public/photos/"
+  },
   "dependencies": {
-    "sharp": "^0.33.5"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "next": "15.1.7"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5",
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.7",
+    "@eslint/eslintrc": "^3"
   }
 }
