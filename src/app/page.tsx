@@ -1,7 +1,7 @@
-import styles from "./page.module.css";
 import React from "react";
 import ImageList from "./components/Gallery";
 import images from "../images.json";
+import './globals.css';
 
 export default function Home() {
   return (

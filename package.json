@@ -9,21 +9,23 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "server": "npx serve@latest out",
     "prebuild": "node prebuild/rename-files.js && node prebuild/convert-images.js && node prebuild/create-json.js && rsync -urvh --delete assets/photos/web/*.avif public/photos/"
   },
   "dependencies": {
+    "next": "15.1.7",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.1.7"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "sharp": "^0.33.5",
-    "typescript": "^5",
+    "lite-server": "^2.6.1",
+    "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
-    "@eslint/eslintrc": "^3"
+    "sharp": "^0.33.5",
+    "typescript": "^5"
   }
 }
