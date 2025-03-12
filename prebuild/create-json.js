@@ -26,6 +26,6 @@ fs.readdir(directoryPath, (err, files) => {
         }
     });
 
-    fs.writeFileSync(outputFilePath, JSON.stringify(result, null, 1).replaceAll('\\n', ''), 'utf8');
+    fs.writeFileSync(outputFilePath, JSON.stringify(result, null, 1), 'utf8');
     console.log('JSON file has been created');
 });

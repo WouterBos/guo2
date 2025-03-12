@@ -1,18 +1,20 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --color-page: hsl(0, 0%, 90%);
+  --color-text: hsl(0, 0%, 20%);
+  --color-text-onprimary: hsl(0, 0%, 100%);
+  --color-primary: hsl(350, 85%, 43%);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  @media (prefers-color-scheme: dark) {
+    --color-page: hsl(0, 0%, 10%);
+    --color-text: hsl(0, 0%, 95%);
   }
 }
 
+html {
+  color: var(--color-text);
+  background: var(--color-page);
+}
+
 body {
-  color: var(--foreground);
-  background: var(--background);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
 }
