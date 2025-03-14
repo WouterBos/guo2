@@ -2,58 +2,19 @@
 
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import styled from "styled-components";
+import {
+  GalleryRoot,
+  ImageList,
+  ImageListButton,
+  ImageListCode,
+  SelectedImage,
+  ImageCode,
+  ImageListContainer,
+} from "./Gallery.styled";
 
 interface GalleryProps {
   data: { [key: string]: string };
 }
-
-const GalleryRoot = styled.div`
-  display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: 20rem 1fr;
-`;
-
-const ImageList = styled.ul`
-  grid-row-start: 1;
-  grid-column-start: 1;
-  grid-column-end: 1;
-  display: flex;
-  flex-direction: column;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-
-  li {
-    display: flex;
-  }
-  li + li {
-    margin-top: 1rem;
-  }
-  li:hover {
-    opacity: 0.9;
-  }
-`;
-
-const SelectedImage = styled.div`
-  grid-row-start: 1;
-  grid-column-start: 2;
-  grid-column-end: 2;
-  position: sticky;
-  top: 0;
-  align-self: start;
-  margin: 0 auto;
-
-  img {
-    max-width: 100%;
-    max-height: 80vh;
-  }
-`;
-
-const ImageCode = styled.div`
-  font-size: 0.9em;
-  font-style: italic;
-`;
 
 const Gallery: React.FC<GalleryProps> = ({ data }) => {
   const router = useRouter();
@@ -77,32 +38,41 @@ const Gallery: React.FC<GalleryProps> = ({ data }) => {
   return (
     <GalleryRoot>
       <SelectedImage>
-        <img src={`/groetenuitoss/photos/${selectedKey}.avif`} alt={data[selectedKey]} />
+        <img
+          src={`/groetenuitoss/photos/${selectedKey}.avif`}
+          alt={data[selectedKey]}
+        />
         <div>
           <span>{data[selectedKey]}</span>
           <ImageCode>{selectedKey}</ImageCode>
         </div>
       </SelectedImage>
-      <ImageList>
-        {Object.entries(data).map(([key, value]) => (
-          <li
-            key={key}
-            onClick={() => handleClick(key)}
-            style={{
-              cursor: "pointer",
-              backgroundColor: key === selectedKey ? "lightblue" : "white",
-            }}
-          >
-            <img
-              src={`/groetenuitoss/photos/${key}.avif`}
-              style={{ width: "20rem" }}
-              title={value}
-              alt={value}
-              loading="lazy"
-            />
-          </li>
-        ))}
-      </ImageList>
+      <ImageListContainer>
+        <ImageList>
+          {Object.entries(data).map(([key, value]) => (
+            <li key={key}>
+              <ImageListButton
+                onClick={() => handleClick(key)}
+                selected={key === selectedKey}
+                style={{
+                  cursor: "pointer",
+                  backgroundImage: `url(/groetenuitoss/photos/${key}.avif)`,
+                  backgroundSize: "cover",
+                }}
+              >
+                {/* <img
+                src={`/groetenuitoss/photos/${key}.avif`}
+                style={{ width: "20rem" }}
+                title={value}
+                alt={value}
+                loading="lazy"
+              /> */}
+                <ImageListCode>{key}</ImageListCode>
+              </ImageListButton>
+            </li>
+          ))}
+        </ImageList>
+      </ImageListContainer>
     </GalleryRoot>
   );
 };
