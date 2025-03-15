@@ -53,20 +53,17 @@ const Gallery: React.FC<GalleryProps> = ({ data }) => {
             <li key={key}>
               <ImageListButton
                 onClick={() => handleClick(key)}
-                selected={key === selectedKey}
+                // selected={key === selectedKey}
                 style={{
                   cursor: "pointer",
-                  backgroundImage: `url(/groetenuitoss/photos/${key}.avif)`,
-                  backgroundSize: "cover",
                 }}
               >
-                {/* <img
+                <img
                 src={`/groetenuitoss/photos/${key}.avif`}
-                style={{ width: "20rem" }}
                 title={value}
                 alt={value}
                 loading="lazy"
-              /> */}
+              />
                 <ImageListCode>{key}</ImageListCode>
               </ImageListButton>
             </li>

@@ -54,6 +54,11 @@ export const ImageListButton = styled.button`
   background-size: cover;
   background-position: center;
 
+img {
+  width: 10rem;
+  height: 10rem;
+  object-position: center;
+  object-fit: cover;}
 `;
 
 export const SelectedImage = styled.div`
