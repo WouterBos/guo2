@@ -1,4 +1,4 @@
-# Photography portfolio website
+# Simple photography portfolio website
 
 This code is used for the Groeten uit Oss website but can be adjusted and published to your own needs for an online portfolio.
 
