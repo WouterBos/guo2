@@ -6,16 +6,7 @@ export const GalleryRoot = styled.div`
   display: grid;
   padding: 0 1rem;
   grid-gap: 1rem;
-  grid-template-columns: 1fr 2fr;
-`;
-
-export const ImageListCode = styled.span`
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 0.1em 0.3em 0.2em 0.3em;
-  background-color: hsla(0, 0%, 0%, 0.2);
-  color: #fff;
+  grid-template-columns: 2fr 3fr;
 `;
 
 export const ImageListContainer = styled.div`
@@ -24,8 +15,22 @@ export const ImageListContainer = styled.div`
   grid-column-end: 1;
 `;
 
+export const ImageListCode = styled.span`
+  opacity: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0.1em 0.3em 0.2em 0.3em;
+  color: hsla(0, 0%, 100%, 0);
+`;
+
 export const ImageList = styled.ul`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
   flex-wrap: wrap;
   gap: 1rem;
   flex-direction: row;
@@ -35,31 +40,34 @@ export const ImageList = styled.ul`
 
   li {
     display: flex;
+    max-height: 10rem;
   }
   li:hover {
     opacity: 0.9;
     ${ImageListCode} {
+      opacity: 1;
+      color: hsla(0, 0%, 100%, 1);
       background-color: hsla(0, 0%, 0%, 0.7);
     }
   }
 `;
 
 export const ImageListButton = styled.button`
+  display: flex;
   position: relative;
   border: none;
-  width: 10rem;
-  height: 10rem;
   padding: 0;
   background-color: hsla(0, 0%, 0%, 0.1);
-  background-size: cover;
-  background-position: center;
 
-img {
-  width: 10rem;
-  height: 10rem;
-  object-position: center;
-  object-fit: cover;}
+  img {
+    aspect-ratio: 1 / 1;
+    object-position: center;
+    object-fit: cover;
+    width: 100%;
+  }
 `;
+
+
 
 export const SelectedImage = styled.div`
   grid-row-start: 1;
