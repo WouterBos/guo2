@@ -10,7 +10,7 @@ fs.readdir(directoryPath, (err, files) => {
     }
 
     // Filter image files and sort them in descending alphabetical order
-    const imageFiles = files.filter(file => /\.avif$/i.test(file)).sort().reverse();
+    const imageFiles = files.filter(file => /\d\.avif$/i.test(file)).sort().reverse();
 
     const result = {};
 

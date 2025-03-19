@@ -12,8 +12,8 @@ const Title: React.FC = () => {
       of Oss, The Netherlands.
     </TextBlock>
     <TextBlock>
-      Available on Facebook,<br />
-      Instagram and Mastodon.
+      Available on <a href="https://www.facebook.com/GroetenUitOss">Facebook</a>,<br />
+      <a href="https://www.instagram.com/groetenuitoss/">Instagram</a> and <a href="https://mastodon.nl/@wouterbos">Mastodon</a>.
     </TextBlock>
   </TitleStyled>;
 };

@@ -1,12 +1,14 @@
 :root {
   --color-page: hsl(0, 0%, 90%);
   --color-text: hsl(0, 0%, 20%);
+  --color-link-underline: hsla(0, 0%, 0%, 0.3);
   --color-text-onprimary: hsl(0, 0%, 100%);
   --color-primary: hsl(350, 85%, 43%);
 
   @media (prefers-color-scheme: dark) {
     --color-page: hsl(0, 0%, 10%);
     --color-text: hsl(0, 0%, 95%);
+    --color-link-underline: hsla(0, 0%, 100%, 0.5);
   }
 }
 
@@ -14,7 +16,11 @@ html {
   color: var(--color-text);
   background: var(--color-page);
   font-size: 1.2rem;
-  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif; ;
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
+
+  @media (max-width: 800px) {
+    font-size: 1rem;
+  }
 }
 
 body {

@@ -4,46 +4,65 @@ const sharp = require("sharp");
 
 const inputDir = "assets/photos/hires";
 const outputDir = "assets/photos/web";
-const maxWidth = 2000;
-const maxHeight = 2000;
+const maxDimension = 2000;
+const maxDimensionThumbnail = 400;
+const rxBaseOutputFile = /\d+_\d+.avif/;
 
 // Ensure the output directory exists
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
-// Function to convert images
-const convertImages = async () => {
+const convertImages = () => {
   const inputFiles = fs.readdirSync(inputDir);
   const outputFiles = fs
     .readdirSync(outputDir)
-    .map((file) => path.parse(file).name);
+    .filter((file) => {
+      const inOutput = rxBaseOutputFile.test(file);
+      return inOutput;
+    })
+    .map((file) => path.parse(file).name)
 
+  // Remove all already converted files from the file list.
   const filesToConvert = inputFiles.filter(
     (file) => !outputFiles.includes(path.parse(file).name)
   );
 
   for (const file of filesToConvert) {
     const inputFilePath = path.join(inputDir, file);
-    const outputFilePath = path.join(
-      outputDir,
-      path.parse(file).name + ".avif"
+    const outputFilePath = path.join(outputDir, path.parse(file).name);
+
+    createAvif(maxDimension, inputFilePath, `${outputFilePath}.avif`, 45, file);
+    createAvif(
+      maxDimensionThumbnail,
+      inputFilePath,
+      `${outputFilePath}-thumbnail.avif`,
+      40,
+      file
     );
+  }
+};
 
-    try {
-      await sharp(inputFilePath)
-        .resize(maxWidth, maxHeight, {
-          fit: sharp.fit.inside,
-          withoutEnlargement: true,
-        })
-        .toFormat("avif")
-        .avif({ quality: 45 })
-        .toFile(outputFilePath);
+const createAvif = async (
+  maxDimension,
+  inputFilePath,
+  outputFilePath,
+  quality,
+  file
+) => {
+  try {
+    await sharp(inputFilePath)
+      .resize(maxDimension, maxDimension, {
+        fit: sharp.fit.inside,
+        withoutEnlargement: true,
+      })
+      .toFormat("avif")
+      .avif({ quality: quality })
+      .toFile(outputFilePath);
 
-      console.log(`Converted ${file} to ${outputFilePath}`);
-    } catch (error) {
-      console.error(`Error converting ${file}:`, error);
-    }
+    console.log(`Converted ${file} to ${outputFilePath}`);
+  } catch (error) {
+    console.error(`Error converting ${file}:`, error);
   }
 };
 

@@ -3,10 +3,16 @@
 import styled from "styled-components";
 
 export const GalleryRoot = styled.div`
+  --mobile-grid-size: 5rem;
+
   display: grid;
   padding: 0 1rem;
   grid-gap: 1rem;
   grid-template-columns: 2fr 3fr;
+
+  @media (max-width: 800px) {
+    grid-template-columns: var(--mobile-grid-size) 1fr;
+  }
 `;
 
 export const ImageListContainer = styled.div`
@@ -37,6 +43,10 @@ export const ImageList = styled.ul`
   list-style-type: none;
   padding: 0;
   margin: 0;
+
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(auto-fill, var(--mobile-grid-size));
+  }
 
   li {
     display: flex;

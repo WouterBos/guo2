@@ -53,13 +53,12 @@ const Gallery: React.FC<GalleryProps> = ({ data }) => {
             <li key={key}>
               <ImageListButton
                 onClick={() => handleClick(key)}
-                // selected={key === selectedKey}
                 style={{
                   cursor: "pointer",
                 }}
               >
                 <img
-                src={`/groetenuitoss/photos/${key}.avif`}
+                src={`/groetenuitoss/photos/${key}-thumbnail.avif`}
                 title={value}
                 alt={value}
                 loading="lazy"
