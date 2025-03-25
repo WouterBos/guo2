@@ -5,10 +5,10 @@ const sharp = require("sharp");
 const inputDir = "assets/photos/hires";
 const outputDir = "assets/photos/web";
 const maxDimension = 2000;
-const maxDimensionThumbnail = 400;
+const maxDimensionThumbnail = 300;
 const rxBaseOutputFile = /\d+_\d+.avif/;
+const isRebuild = process.argv.includes("rebuild");
 
-// Ensure the output directory exists
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
@@ -21,20 +21,27 @@ const convertImages = () => {
       const inOutput = rxBaseOutputFile.test(file);
       return inOutput;
     })
-    .map((file) => path.parse(file).name)
+    .map((file) => path.parse(file).name);
 
-  // Remove all already converted files from the file list.
-  const filesToConvert = inputFiles.filter(
-    (file) => !outputFiles.includes(path.parse(file).name)
-  );
+  const unconvertedFiles = isRebuild
+    ? inputFiles
+    : inputFiles.filter((file) => !outputFiles.includes(path.parse(file).name));
 
-  for (const file of filesToConvert) {
+  for (const file of unconvertedFiles) {
     const inputFilePath = path.join(inputDir, file);
     const outputFilePath = path.join(outputDir, path.parse(file).name);
 
-    createAvif(maxDimension, inputFilePath, `${outputFilePath}.avif`, 45, file);
+    createAvif(
+      maxDimension,
+      false,
+      inputFilePath,
+      `${outputFilePath}.avif`,
+      45,
+      file
+    );
     createAvif(
       maxDimensionThumbnail,
+      true,
       inputFilePath,
       `${outputFilePath}-thumbnail.avif`,
       40,
@@ -45,6 +52,7 @@ const convertImages = () => {
 
 const createAvif = async (
   maxDimension,
+  square,
   inputFilePath,
   outputFilePath,
   quality,
@@ -53,7 +61,7 @@ const createAvif = async (
   try {
     await sharp(inputFilePath)
       .resize(maxDimension, maxDimension, {
-        fit: sharp.fit.inside,
+        fit: square ? sharp.fit.cover : sharp.fit.inside,
         withoutEnlargement: true,
       })
       .toFormat("avif")

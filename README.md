@@ -7,6 +7,6 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 ## Getting Started
 
 - `npm install` Installs the required packages.
-- `npm run prebuild` This will convert hires photos to web optimised images and generate a data json with photo names and descriptions.
+- `npm run prebuild` This will convert hires photos to web optimised images and generates a data json with photo names and descriptions. It will only create web optimised images for the ones that haven't been processed yet. Use `npm run rebuild` to recreate all image files again if needed.
 - `npm run dev` Run dev server and open  http://localhost:3000/groetenuitoss.
-- `npm run build` Generate website files to publish to a web server to the subfolder `/groetenuitoss/`.
+- `npm run build` Generate website files to the `out` folder. Upload the files to a web server in the subfolder `/groetenuitoss/`.

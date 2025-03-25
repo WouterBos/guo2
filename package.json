@@ -10,7 +10,8 @@
     "start": "next start",
     "lint": "next lint",
     "server": "npx serve@latest out",
-    "prebuild": "node prebuild/rename-files.js && node prebuild/convert-images.js && node prebuild/create-json.js && rsync -urvh --delete assets/photos/web/*.avif public/photos/"
+    "prebuild": "node prebuild/rename-files.js && node prebuild/convert-images.js && node prebuild/create-json.js && rsync -urvh --delete assets/photos/web/*.avif public/photos/",
+    "rebuild": "node prebuild/rename-files.js && node prebuild/convert-images.js rebuild && node prebuild/create-json.js && rsync -urvh --delete assets/photos/web/*.avif public/photos/"
   },
   "dependencies": {
     "next": "15.1.7",
