@@ -1,33 +1,31 @@
 {
-  "name": "guo",
-  "version": "1.0.0",
+  "name": "guo3",
   "private": true,
-  "author": "Wouter Bos",
-  "license": "ISC",
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "server": "npx serve@latest out",
-    "prebuild": "node prebuild/rename-files.js && node prebuild/convert-images.js && node prebuild/create-json.js && rsync -urvh --delete assets/photos/web/*.avif public/photos/",
-    "rebuild": "node prebuild/rename-files.js && node prebuild/convert-images.js rebuild && node prebuild/create-json.js && rsync -urvh --delete assets/photos/web/*.avif public/photos/"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "prebuild": "node prebuild/rename-files.cjs && node prebuild/convert-images.cjs && node prebuild/create-json.cjs && rsync -urvh --delete assets/photos/web/*.avif public/photos/",
+    "rebuild": "node prebuild/rename-files.cjs && node prebuild/convert-images.cjs rebuild && node prebuild/create-json.cjs && rsync -urvh --delete assets/photos/web/*.avif public/photos/"
   },
   "dependencies": {
-    "next": "15.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "styled-components": "^6.1.15"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.1.7",
-    "lite-server": "^2.6.1",
-    "sharp": "^0.33.5",
-    "typescript": "^5"
+    "@eslint/js": "^9.21.0",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.21.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^15.15.0",
+    "vite": "^6.2.0",
+    "sharp": "^0.33.5"
   }
 }

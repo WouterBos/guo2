@@ -19,7 +19,7 @@ export const TextBlock = styled.div`
   padding: .5rem;
   box-sizing: border-box;
   line-height: 1.25;
-  border: 4px solid var(--color-primary);
+  border: var(--border-regular) solid var(--color-primary);
 
   a {
     color: inherit;

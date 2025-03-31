@@ -31,7 +31,7 @@ export const ImageListCode = styled.span`
   text-overflow: ellipsis;
   white-space: nowrap;
   padding: 0.1em 0.3em 0.2em 0.3em;
-  color: hsla(0, 0%, 100%, 0);
+  color: oklch(1 0 0 / 0);
 `;
 
 export const ImageList = styled.ul`
@@ -52,14 +52,6 @@ export const ImageList = styled.ul`
     display: flex;
     max-height: 10rem;
   }
-  li:hover {
-    opacity: 0.9;
-    ${ImageListCode} {
-      opacity: 1;
-      color: hsla(0, 0%, 100%, 1);
-      background-color: hsla(0, 0%, 0%, 0.7);
-    }
-  }
 `;
 
 export const ImageListButton = styled.button`
@@ -74,6 +66,13 @@ export const ImageListButton = styled.button`
     object-position: center;
     object-fit: cover;
     width: 100%;
+  }
+  &:hover img {
+    opacity: 0.8;
+  }
+
+  &.selected {
+    outline: var(--border-large) solid var(--color-primary);
   }
 `;
 

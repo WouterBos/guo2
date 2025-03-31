@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import {
   GalleryRoot,
   ImageList,
@@ -17,13 +16,12 @@ interface GalleryProps {
 }
 
 const Gallery: React.FC<GalleryProps> = ({ data }) => {
-  const router = useRouter();
   const [selectedKey, setSelectedKey] = useState<string>(Object.keys(data)[0]);
 
   useEffect(() => {
     const hash = window.location.hash;
-    if (hash.startsWith("#photo=")) {
-      const photoKey = hash.split("#photo=")[1];
+    if (hash.startsWith("#photo")) {
+      const photoKey = hash.split("#photo")[1];
       if (data[photoKey]) {
         setSelectedKey(photoKey);
       }
@@ -32,7 +30,7 @@ const Gallery: React.FC<GalleryProps> = ({ data }) => {
 
   const handleClick = (key: string) => {
     setSelectedKey(key);
-    router.push(`#photo=${key}`, { scroll: false });
+    window.history.pushState(null, "", `#photo${key}`);
   };
 
   return (
@@ -56,13 +54,14 @@ const Gallery: React.FC<GalleryProps> = ({ data }) => {
                 style={{
                   cursor: "pointer",
                 }}
+                className={key === selectedKey ? "selected" : ""}
               >
                 <img
-                src={`/groetenuitoss/photos/${key}-thumbnail.avif`}
-                title={value}
-                alt={value}
-                loading="lazy"
-              />
+                  src={`/groetenuitoss/photos/${key}-thumbnail.avif`}
+                  title={value}
+                  alt={value}
+                  loading="lazy"
+                />
                 <ImageListCode>{key}</ImageListCode>
               </ImageListButton>
             </li>
