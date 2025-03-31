@@ -1,8 +1,6 @@
-# Simple photography portfolio website
+# Minimal photography portfolio website
 
 This code is used for the [Groeten uit Oss website](https://bososs.nl/groetenuitoss/) but can be adjusted and published to your own needs for an online portfolio.
-
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
