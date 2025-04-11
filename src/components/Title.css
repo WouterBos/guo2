@@ -1,0 +1,28 @@
+.titleStyled {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.textBlock {
+  max-width: fit-content;
+  height: 4rem;
+  white-space: pre;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  line-height: 1.25;
+  border: var(--border-regular) solid var(--color-primary);
+
+  a {
+    color: inherit;
+    text-decoration: underline var(--color-link-underline);
+
+    &:hover {
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+  }
+}

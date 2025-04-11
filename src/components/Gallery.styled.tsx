@@ -1,99 +1,63 @@
 "use client";
 
-import styled from "styled-components";
+import "./Gallery.css";
 
-export const GalleryRoot = styled.div`
-  --mobile-grid-size: 5rem;
+export const GalleryRoot: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  return <div className="galleryRoot">{children}</div>;
+};
 
-  display: grid;
-  padding: 0 1rem;
-  grid-gap: 1rem;
-  grid-template-columns: 2fr 3fr;
+export const ImageList: React.FC<{
+  images: object;
+  selected: string;
+  updateSelected: (code: string) => void;
+}> = ({ images, selected, updateSelected }) => {
+  const handleClick = (key: string) => {
+    updateSelected(key);
+    window.history.pushState(null, "", `#photo${key}`);
+  };
 
-  @media (max-width: 800px) {
-    grid-template-columns: var(--mobile-grid-size) 1fr;
-  }
-`;
+  return (
+    <div className="imageList">
+      <ul className="imageList_list">
+        {Object.entries(images).map(([key, value]) => (
+          <li key={key}>
+            <div
+              className={`imageList_button ${
+                key === selected ? "selected" : ""
+              }`}
+              onClick={() => handleClick(key)}
+              style={{
+                cursor: "pointer",
+              }}
+            >
+              <img
+                src={`/groetenuitoss/photos/${key}-thumbnail.avif`}
+                title={value}
+                alt={value}
+                loading="lazy"
+              />
+              <div className="imageList__code">{key}</div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
-export const ImageListContainer = styled.div`
-  grid-row-start: 1;
-  grid-column-start: 1;
-  grid-column-end: 1;
-`;
-
-export const ImageListCode = styled.span`
-  opacity: 1;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  padding: 0.1em 0.3em 0.2em 0.3em;
-  color: oklch(1 0 0 / 0);
-`;
-
-export const ImageList = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
-  flex-wrap: wrap;
-  gap: 1rem;
-  flex-direction: row;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-
-  @media (max-width: 800px) {
-    grid-template-columns: repeat(auto-fill, var(--mobile-grid-size));
-  }
-
-  li {
-    display: flex;
-    max-height: 10rem;
-  }
-`;
-
-export const ImageListButton = styled.button`
-  display: flex;
-  position: relative;
-  border: none;
-  padding: 0;
-  background-color: hsla(0, 0%, 0%, 0.1);
-
-  img {
-    aspect-ratio: 1 / 1;
-    object-position: center;
-    object-fit: cover;
-    width: 100%;
-  }
-  &:hover img {
-    opacity: 0.8;
-  }
-
-  &.selected {
-    outline: var(--border-large) solid var(--color-primary);
-  }
-`;
-
-
-
-export const SelectedImage = styled.div`
-  grid-row-start: 1;
-  grid-column-start: 2;
-  grid-column-end: 2;
-  position: sticky;
-  top: 0;
-  align-self: start;
-  margin: 0 auto;
-
-  img {
-    max-width: 100%;
-    max-height: 80vh;
-  }
-`;
-
-export const ImageCode = styled.div`
-  font-size: 0.9em;
-  font-style: italic;
-`;
+export const SelectedImage: React.FC<{ code: string; description: string }> = ({
+  code,
+  description,
+}) => {
+  return (
+    <div className="selectedImage">
+      <img src={`/groetenuitoss/photos/${code}.avif`} alt={description} />
+      <div>
+        <span>{description}</span>
+        <div className="selectedImage__code">{code}</div>
+      </div>
+    </div>
+  );
+};

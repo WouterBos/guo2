@@ -3,7 +3,7 @@ const path = require("path");
 const sharp = require("sharp");
 
 const inputDir = "assets/photos/hires";
-const outputDir = "assets/photos/web";
+const outputDir = "public/photos/";
 const maxDimension = 2000;
 const maxDimensionThumbnail = 300;
 const rxBaseOutputFile = /\d+_\d+.avif/;

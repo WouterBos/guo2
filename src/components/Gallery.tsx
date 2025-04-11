@@ -1,15 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import {
-  GalleryRoot,
-  ImageList,
-  ImageListButton,
-  ImageListCode,
-  SelectedImage,
-  ImageCode,
-  ImageListContainer,
-} from "./Gallery.styled";
+import { GalleryRoot, SelectedImage, ImageList } from "./Gallery.styled";
+import "./Gallery.css";
 
 interface GalleryProps {
   data: { [key: string]: string };
@@ -28,46 +21,14 @@ const Gallery: React.FC<GalleryProps> = ({ data }) => {
     }
   }, [data]);
 
-  const handleClick = (key: string) => {
-    setSelectedKey(key);
-    window.history.pushState(null, "", `#photo${key}`);
-  };
-
   return (
     <GalleryRoot>
-      <SelectedImage>
-        <img
-          src={`/groetenuitoss/photos/${selectedKey}.avif`}
-          alt={data[selectedKey]}
-        />
-        <div>
-          <span>{data[selectedKey]}</span>
-          <ImageCode>{selectedKey}</ImageCode>
-        </div>
-      </SelectedImage>
-      <ImageListContainer>
-        <ImageList>
-          {Object.entries(data).map(([key, value]) => (
-            <li key={key}>
-              <ImageListButton
-                onClick={() => handleClick(key)}
-                style={{
-                  cursor: "pointer",
-                }}
-                className={key === selectedKey ? "selected" : ""}
-              >
-                <img
-                  src={`/groetenuitoss/photos/${key}-thumbnail.avif`}
-                  title={value}
-                  alt={value}
-                  loading="lazy"
-                />
-                <ImageListCode>{key}</ImageListCode>
-              </ImageListButton>
-            </li>
-          ))}
-        </ImageList>
-      </ImageListContainer>
+      <SelectedImage code={selectedKey} description={data[selectedKey]} />
+      <ImageList
+        images={data}
+        selected={selectedKey}
+        updateSelected={setSelectedKey}
+      />
     </GalleryRoot>
   );
 };
