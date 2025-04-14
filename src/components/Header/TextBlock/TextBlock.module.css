@@ -1,13 +1,4 @@
-.titleStyled {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.textBlock {
+.root {
   max-width: fit-content;
   height: 4rem;
   white-space: pre;

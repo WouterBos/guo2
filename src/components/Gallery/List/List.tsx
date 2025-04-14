@@ -1,14 +1,8 @@
 "use client";
 
-import "./Gallery.css";
+import css from "./List.module.css";
 
-export const GalleryRoot: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  return <div className="galleryRoot">{children}</div>;
-};
-
-export const ImageList: React.FC<{
+export const List: React.FC<{
   images: object;
   selected: string;
   updateSelected: (code: string) => void;
@@ -19,13 +13,13 @@ export const ImageList: React.FC<{
   };
 
   return (
-    <div className="imageList">
-      <ul className="imageList_list">
+    <div className={ css.root }>
+      <ul className={ css.list }>
         {Object.entries(images).map(([key, value]) => (
           <li key={key}>
             <div
-              className={`imageList_button ${
-                key === selected ? "selected" : ""
+              className={`${css.button} ${
+                key === selected ? css.selected : ""
               }`}
               onClick={() => handleClick(key)}
               style={{
@@ -38,7 +32,7 @@ export const ImageList: React.FC<{
                 alt={value}
                 loading="lazy"
               />
-              <div className="imageList__code">{key}</div>
+              <div className={css.code}>{key}</div>
             </div>
           </li>
         ))}
@@ -47,17 +41,4 @@ export const ImageList: React.FC<{
   );
 };
 
-export const SelectedImage: React.FC<{ code: string; description: string }> = ({
-  code,
-  description,
-}) => {
-  return (
-    <div className="selectedImage">
-      <img src={`/groetenuitoss/photos/${code}.avif`} alt={description} />
-      <div>
-        <span>{description}</span>
-        <div className="selectedImage__code">{code}</div>
-      </div>
-    </div>
-  );
-};
+export default List;

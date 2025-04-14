@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { GalleryRoot, SelectedImage, ImageList } from "./Gallery.styled";
-import "./Gallery.css";
+import Root from "./Root/Root";
+import Selected from "./Selected/Selected";
+import List from "./List/List";
 
 interface GalleryProps {
   data: { [key: string]: string };
@@ -22,14 +23,14 @@ const Gallery: React.FC<GalleryProps> = ({ data }) => {
   }, [data]);
 
   return (
-    <GalleryRoot>
-      <SelectedImage code={selectedKey} description={data[selectedKey]} />
-      <ImageList
+    <Root>
+      <Selected code={selectedKey} description={data[selectedKey]} />
+      <List
         images={data}
         selected={selectedKey}
         updateSelected={setSelectedKey}
       />
-    </GalleryRoot>
+    </Root>
   );
 };
 

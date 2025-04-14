@@ -1,0 +1,12 @@
+.root {
+  --mobile-grid-size: 5rem;
+
+  display: grid;
+  padding: 0 1rem;
+  grid-gap: 1rem;
+  grid-template-columns: 2fr 3fr;
+
+  @media (max-width: 800px) {
+    grid-template-columns: var(--mobile-grid-size) 1fr;
+  }
+}
