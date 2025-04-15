@@ -1,7 +1,6 @@
 .root {
   grid-row-start: 1;
-  grid-column-start: 1;
-  grid-column-end: 1;
+  grid-column: 1 / 1;
 }
 
 .code {
@@ -13,21 +12,20 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding: 0.1em 0.3em 0.2em 0.3em;
-  color: oklch(1 0 0 / 0);
+  padding: 0.1em 0.3em 0.2em;
+  color: transparent;
 }
 
 .list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   gap: 1rem;
-  flex-direction: row;
   list-style-type: none;
   padding: 0;
   margin: 0;
 
-  @media (max-width: 800px) {
+  @media (width <= 800px) {
     grid-template-columns: repeat(auto-fill, var(--mobile-grid-size));
   }
 
@@ -42,7 +40,7 @@
   position: relative;
   border: none;
   padding: 0;
-  background-color: hsla(0, 0%, 0%, 0.1);
+  background-color: oklch(0% 0 0deg / 10%);
 
   img {
     aspect-ratio: 1 / 1;
@@ -50,6 +48,7 @@
     object-fit: cover;
     width: 100%;
   }
+
   &:hover img {
     opacity: 0.8;
   }
