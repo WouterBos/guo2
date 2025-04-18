@@ -1,1 +1,11 @@
-{ "extends": ["stylelint-config-standard"] }
+{
+    "extends": [
+        "stylelint-config-standard",
+        "stylelint-config-css-modules",
+        "stylelint-config-clean-order"
+    ],
+    "rules": {
+        "hue-degree-notation": "number",
+        "selector-class-pattern": null
+    }
+}

@@ -1,9 +1,11 @@
 .selected {
-  grid-row-start: 1;
-  grid-column: 2 / 2;
   position: sticky;
   top: 0;
+
+  grid-column: 2 / 2;
+  grid-row-start: 1;
   align-self: start;
+
   margin: 0 auto;
 
   img {

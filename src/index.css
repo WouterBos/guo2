@@ -1,24 +1,24 @@
 :root {
-  --color-page: oklch(92% 0 0deg);
-  --color-text: oklch(32% 0 0deg);
+  --color-page: oklch(92% 0 0);
+  --color-text: oklch(32% 0 0);
   --color-link-underline: oklch(from var(--color-text) l c h / 30%);
-  --color-text-onprimary: oklch(100% 0 0deg);
-  --color-primary: oklch(54% 0.2095 22.1192deg);
+  --color-text-onprimary: oklch(100% 0 0);
+  --color-primary: oklch(54% 0.2095 22.1192);
   --border-regular: 4px;
   --border-large: 8px;
 
   @media (prefers-color-scheme: dark) {
-    --color-page: oklch(22% 0 0deg);
-    --color-text: oklch(96% 0 0deg);
+    --color-page: oklch(22% 0 0);
+    --color-text: oklch(96% 0 0);
     --color-link-underline: oklch(from var(--color-text) l c h / 50%);
   }
 }
 
 html {
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
+  font-size: 1.2rem;
   color: var(--color-text);
   background: var(--color-page);
-  font-size: 1.2rem;
-  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
 
   @media (width <= 800px) {
     font-size: 1rem;

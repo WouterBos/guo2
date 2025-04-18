@@ -1,11 +1,12 @@
 .root {
+  box-sizing: border-box;
   max-width: fit-content;
   height: 4rem;
-  white-space: pre;
   padding: 0.5rem;
-  box-sizing: border-box;
-  line-height: 1.25;
   border: var(--border-regular) solid var(--color-primary);
+
+  line-height: 1.25;
+  white-space: pre;
 
   a {
     color: inherit;
