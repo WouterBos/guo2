@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
     "build": "npm run lint && vite build",
     "lint": "eslint . && npx stylelint 'src/**/*.css'",
     "lint:fix": "eslint . --fix && npx stylelint 'src/**/*.css' --fix",

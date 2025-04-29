@@ -1,8 +1,10 @@
 .root {
+  align-content: center;
+
   box-sizing: border-box;
   max-width: fit-content;
   height: 4rem;
-  padding: 0.5rem;
+  padding: 0.5rem 0.8rem;
   border: var(--border-regular) solid var(--color-primary);
 
   line-height: 1.25;
