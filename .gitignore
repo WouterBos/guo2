@@ -41,5 +41,13 @@ yarn-error.log*
 next-env.d.ts
 
 /assets/photos/hires
-
+/public/photos
+!/public/photos/20250118_0118*
+!/public/photos/20250118_0168*
+!/public/photos/20250126_0052*
+!/public/photos/20250302_0031*
+!/public/photos/20250302_0058*
+!/public/photos/20250309_0007*
+!/public/photos/20250309_0048*
+!/public/photos/20250309_0081*
 /dist/

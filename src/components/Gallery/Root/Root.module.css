@@ -2,9 +2,9 @@
   --mobile-grid-size: 5rem;
 
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: var(--spacing);
   grid-template-columns: 2fr 3fr;
-  padding: 0 1rem;
+  padding: 0 var(--spacing-page-x) 0 calc(var(--spacing) * 1.5);
 
   @media (width <= 800px) {
     grid-template-columns: var(--mobile-grid-size) 1fr;

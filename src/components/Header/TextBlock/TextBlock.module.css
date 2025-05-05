@@ -10,13 +10,17 @@
   line-height: 1.25;
   white-space: pre;
 
+  background: var(--color-surface);
+
   a {
     color: inherit;
     text-decoration: underline var(--color-link-underline);
+    transition: color .5s ease-out;
 
     &:hover {
       color: var(--color-primary);
       text-decoration: none;
+      transition: color 0.1s ease-out;
     }
   }
 }
