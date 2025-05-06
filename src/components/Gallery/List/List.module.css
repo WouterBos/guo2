@@ -25,7 +25,7 @@
   grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
   flex-flow: row wrap;
 
-  margin: calc(var(--spacing) / -2) 0 0 0;
+  margin: calc(var(--spacing) / -2) 0 0;
   padding: 0;
 
   list-style-type: none;
@@ -54,16 +54,16 @@
     object-fit: cover;
     object-position: center;
 
-    transition: all 1.5s var(--easing-elastic);
+    transition: all .3s var(--easing-elastic);
   }
 
   &:hover img {
     z-index: 1;
-    transform: scale(1.4) perspective(40rem) rotateY(-10deg) rotateX(5deg);
-
+    transform: scale(1.5) perspective(40rem) rotateY(-10deg) rotateX(5deg);
     box-shadow: rgb(0 0 0 / 10%) .7rem 1.5rem 2.5rem, rgb(0 0 0 / 17%) .7rem 1rem 1.5rem, rgb(0 0 0 / 80%) .01rem .01rem .3rem;
 
-    transition: all 0.4s var(--easing-elastic);
+    /* transition: all .4s var(--easing-elastic); */
+    image-rendering: optimizequality;
   }
 
   &.selected img {
