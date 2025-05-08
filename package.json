@@ -13,7 +13,7 @@
     "rebuild": "node prebuild/rename-files.cjs && node prebuild/convert-images.cjs rebuild && node prebuild/create-json.cjs"
   },
   "dependencies": {
-    "motion": "^12.9.7",
+    "motion": "^12.10.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

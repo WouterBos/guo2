@@ -13,25 +13,26 @@ export const List: React.FC<{
   };
 
   return (
-    <div className={ css.root }>
-      <ul className={ css.list }>
+    <div className={css.root}>
+      <ul className={css.list}>
         {Object.entries(images).map(([key, value]) => (
           <li key={key}>
             <div
-              className={`${css.button} ${
-                key === selected ? css.selected : ""
-              }`}
+              className={`${css.button} ${key === selected ? css.selected : ""}`}
               onClick={() => handleClick(key)}
+              onKeyUp={(e) => {
+                console.log("key", e.key);
+                if (e.key === "Enter") {
+                  handleClick(key);
+                }
+              }}
               style={{
                 cursor: "pointer",
               }}
+              role="button"
+              tabIndex={0}
             >
-              <img
-                src={`/groetenuitoss/photos/${key}-thumbnail.avif`}
-                title={value}
-                alt={value}
-                loading="lazy"
-              />
+              <img src={`/groetenuitoss/photos/${key}-thumbnail.avif`} title={value} alt={value} loading="lazy" />
               <div className={css.code}>{key}</div>
             </div>
           </li>
