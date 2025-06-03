@@ -2,11 +2,13 @@
 
 import css from "./Selected.module.css";
 import { AnimatePresence, motion } from "framer-motion";
+import { useReducedMotion } from "motion/react"
 
 export const Selected: React.FC<{ code: string; description: string }> = ({ code, description }) => {
+  const noMotion = useReducedMotion();
   const variants = {
-    visible: { opacity: 1, transition: { duration: .3 } },
-    hidden: { opacity: 0, transition: { duration: .1 } }
+    visible: { opacity: 1, transition: { duration: noMotion ? 0 : .3 } },
+    hidden: { opacity: 0, transition: { duration: noMotion ? 0 : .1 } }
   }
 
   return (

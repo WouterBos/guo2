@@ -6,7 +6,7 @@ const inputDir = "assets/photos/hires";
 const outputDir = "public/photos/";
 const maxDimension = 2000;
 const maxDimensionThumbnail = 300;
-const rxBaseOutputFile = /\d+_\d+.avif/;
+const rxBaseOutputFile = /\d+_[^.]+.avif/;
 const isRebuild = process.argv.includes("rebuild");
 
 if (!fs.existsSync(outputDir)) {
