@@ -22,7 +22,7 @@ fs.readdir(directoryPath, (err, files) => {
             const fileContent = fs.readFileSync(textFilePath, 'utf8');
             result[fileNameWithoutExt] = fileContent;
         } else {
-            result[fileNameWithoutExt] = '';
+            result[fileNameWithoutExt] = 'No description available';
         }
     });
 

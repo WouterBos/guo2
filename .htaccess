@@ -1,0 +1,28 @@
+# Cache Control - Set expiration to 1 year for specific file types
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    ExpiresByType image/avif "access plus 1 year"
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
+</IfModule>
+
+# Alternative method using mod_headers (in case mod_expires is not available)
+<IfModule mod_headers.c>
+    <FilesMatch "\.(avif)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+    
+    <FilesMatch "\.(css)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+    
+    <FilesMatch "\.(svg)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+
+    <FilesMatch "\.(js)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+</IfModule>
