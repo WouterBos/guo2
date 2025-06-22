@@ -21,7 +21,6 @@ export const List: React.FC<{
               className={`${css.button} ${key === selected ? css.selected : ""}`}
               onClick={() => handleClick(key)}
               onKeyUp={(e) => {
-                console.log("key", e.key);
                 if (e.key === "Enter") {
                   handleClick(key);
                 }
@@ -31,9 +30,10 @@ export const List: React.FC<{
               }}
               role="button"
               tabIndex={0}
+              aria-label={`Click to view photo. ${value}`}
             >
               <img src={`/groetenuitoss/photos/${key}-thumbnail.avif`} title={value} alt={value} loading="lazy" />
-              <div className={css.code}>{key}</div>
+              <div className={css.code} aria-hidden>{key}</div>
             </div>
           </li>
         ))}

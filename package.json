@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "vite",
-    "build": "npm run lint && vite build && rsync .htaccess ./dist/",
+    "build": "npm run lint && npm run prebuild && vite build && rsync .htaccess ./dist/ && rm -f ./dist/photos/*.txt",
     "lint": "eslint . && npx stylelint 'src/**/*.css'",
     "lint:fix": "eslint . --fix && npx stylelint 'src/**/*.css' --fix",
     "preview": "vite preview",
