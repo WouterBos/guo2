@@ -53,10 +53,6 @@
     object-fit: cover;
     object-position: center;
     outline: var(--border-large) solid transparent;
-
-    @media screen and (prefers-reduced-motion: no-preference) {
-      transition: transform 0.3s var(--easing-elastic), box-shadow 0.3s var(--easing-elastic), outline 0.2s ease-out;
-    }
   }
 
   &.selected img {
@@ -64,23 +60,20 @@
   }
 
   @media screen and (prefers-reduced-motion: no-preference) {
-    transition: transform 0.1s ease;
-
     &:hover,
     &:focus-visible {
       z-index: 1;
       outline: none;
 
       img {
-        transform: scale(1.5) perspective(40rem) rotateY(-10deg) rotateX(5deg);
+        transform: scale(1.25) perspective(40rem) rotateY(-10deg) rotateX(5deg);
         box-shadow: rgb(0 0 0 / 10%) 0.7rem 1.5rem 2.5rem, rgb(0 0 0 / 17%) 0.7rem 1rem 1.5rem,
-          rgb(0 0 0 / 80%) 0.01rem 0.01rem 0.3rem;
-
-        /* transition: all .4s var(--easing-elastic); */
+          rgb(0 0 0 / 50%) 0.01rem 0.01rem 1rem;
         image-rendering: optimizequality;
+        transition: transform 0.3s var(--easing-elastic), box-shadow 0.3s var(--easing-elastic);
       }
     }
-
+    
     &:active {
       z-index: 1;
       transform: scale(0.97);
