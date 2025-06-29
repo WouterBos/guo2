@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const directoryPath = path.join(__dirname, '../assets/photos/hires');
+const directoryPath = path.join(__dirname, '../hires-photos');
 
 // Remove the "Full_SX_" prefix from all files in the directory
 fs.readdir(directoryPath, (err, files) => {

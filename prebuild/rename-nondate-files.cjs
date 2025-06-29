@@ -1,12 +1,12 @@
 // rename-nondate-files.cjs
-// NodeJS script to prefix files in assets/photos/hires that do not start with a number, using the date the picture was taken.
+// NodeJS script to prefix files in hires-photos that do not start with a number, using the date the picture was taken.
 // Usage: node prebuild/rename-nondate-files.cjs
 
 const fs = require('fs');
 const path = require('path');
 const exif = require('exif-parser');
 
-const hiresDir = path.join(__dirname, '../assets/photos/hires');
+const hiresDir = path.join(__dirname, '../hires-photos');
 
 function startsWithNumber(filename) {
   return /^\d/.test(filename);

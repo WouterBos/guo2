@@ -60,7 +60,11 @@
   }
 
   @media screen and (prefers-reduced-motion: no-preference) {
-    &:hover,
+      img {
+        transition: transform 0.3s var(--easing-elastic), box-shadow 0.3s var(--easing-elastic);
+      }
+
+      &:hover,
     &:focus-visible {
       z-index: 1;
       outline: none;
@@ -70,7 +74,6 @@
         box-shadow: rgb(0 0 0 / 10%) 0.7rem 1.5rem 2.5rem, rgb(0 0 0 / 17%) 0.7rem 1rem 1.5rem,
           rgb(0 0 0 / 50%) 0.01rem 0.01rem 1rem;
         image-rendering: optimizequality;
-        transition: transform 0.3s var(--easing-elastic), box-shadow 0.3s var(--easing-elastic);
       }
     }
     

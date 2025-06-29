@@ -40,7 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/assets/photos/hires
+/hires-photos
 /public/photos
 !/public/photos/20250118_0118*
 !/public/photos/20250118_0168*

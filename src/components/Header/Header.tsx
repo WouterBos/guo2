@@ -14,18 +14,14 @@ const Header: React.FC = () => {
         style={{ display: "inline-block", width: "auto", height: "4rem" }}
       />
       <TextBlock>
-        <span>
-          Photography in the municipality
-          <br />
-          of Oss, The Netherlands.
-        </span>
+        Photography in the municipality
+        <br />
+        of Oss, The Netherlands.
       </TextBlock>
       <TextBlock>
-        <span>
-          Available on <a href="https://www.facebook.com/GroetenUitOss">Facebook</a>,<br />
-          <a href="https://www.instagram.com/groetenuitoss/">Instagram</a> and{" "}
-          <a href="https://mastodon.nl/@wouterbos">Mastodon</a>.
-        </span>
+        Available on <a href="https://www.facebook.com/GroetenUitOss">Facebook</a>,<br />
+        <a href="https://www.instagram.com/groetenuitoss/">Instagram</a> and{" "}
+        <a href="https://mastodon.nl/@wouterbos">Mastodon</a>.
       </TextBlock>
     </Title>
   );

@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const sharp = require("sharp");
 
-const inputDir = "assets/photos/hires";
+const inputDir = "hires-photos";
 const outputDir = "public/photos/";
 const maxDimension = 2000;
 const maxDimensionThumbnail = 300;
@@ -14,7 +14,7 @@ if (!fs.existsSync(outputDir)) {
 }
 
 const convertImages = () => {
-  const inputFiles = fs.readdirSync(inputDir);
+  const inputFiles = fs.readdirSync(inputDir).filter((file) => /\.(jpe?g)$/i.test(file));
   const outputFiles = fs
     .readdirSync(outputDir)
     .filter((file) => {
@@ -30,13 +30,13 @@ const convertImages = () => {
   for (const file of unconvertedFiles) {
     const inputFilePath = path.join(inputDir, file);
     const outputFilePath = path.join(outputDir, path.parse(file).name);
-    const txtFilePath = `${outputFilePath}.txt`;
+    const txtFilePath = path.join(outputDir, path.parse(file).name + ".txt");
 
     createAvif(maxDimension, false, inputFilePath, `${outputFilePath}.avif`, 45, file);
     createAvif(maxDimensionThumbnail, true, inputFilePath, `${outputFilePath}-thumbnail.avif`, 40, file);
 
     if (!fs.existsSync(txtFilePath)) {
-      fs.writeFileSync(txtFilePath, "");
+      fs.writeFileSync(txtFilePath, outputFilePath);
     }
   }
 };
