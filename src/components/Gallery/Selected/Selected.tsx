@@ -23,7 +23,7 @@ export const Selected: React.FC<{ code: string; description: string }> = ({ code
         >
           <img src={`/groetenuitoss/photos/${code}.avif`} alt={description} />
           <div className={css.description}>
-            <span>{description}</span>
+            <span className={css.descriptionText}>{description}</span>
             <div>{code}</div>
           </div>
         </motion.div>

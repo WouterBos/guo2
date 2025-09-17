@@ -21,6 +21,10 @@
   text-wrap: pretty;
 }
 
+.descriptionText {
+  white-space: break-spaces;
+}
+
 .code {
   font-size: 0.9em;
   font-style: italic;

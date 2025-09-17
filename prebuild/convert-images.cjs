@@ -36,7 +36,7 @@ const convertImages = () => {
     createAvif(maxDimensionThumbnail, true, inputFilePath, `${outputFilePath}-thumbnail.avif`, 40, file);
 
     if (!fs.existsSync(txtFilePath)) {
-      fs.writeFileSync(txtFilePath, outputFilePath);
+      fs.writeFileSync(txtFilePath, "");
     }
   }
 };
