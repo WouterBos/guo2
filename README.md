@@ -10,10 +10,11 @@ The purpose of the website:
 Features:
 - Works on both mobile and desktop.
 - Find an image by code by using the browser's page search.
+- Fast.
 
 For demo, check out [Groeten uit Oss website](https://bososs.nl/groetenuitoss/).
 
-⚠️ **Expect some bugs.** For now, this generator is used by the author only. You're free to use GUOS to create your own website but expect issues that I haven't encounter myself.
+⚠️ **Expect some bugs.** For now, this generator is only used by me. You're free to use GUOS to create your own website but expect issues that I haven't encounter myself.
 
 ## Getting Started
 
