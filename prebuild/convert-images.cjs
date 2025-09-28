@@ -30,7 +30,7 @@ const convertImages = () => {
   for (const file of unconvertedFiles) {
     const inputFilePath = path.join(inputDir, file);
     const outputFilePath = path.join(outputDir, path.parse(file).name);
-    const txtFilePath = path.join(outputDir, path.parse(file).name + ".txt");
+    const txtFilePath = path.join(inputDir, path.parse(file).name + ".txt");
 
     createAvif(maxDimension, false, inputFilePath, `${outputFilePath}.avif`, 45, file);
     createAvif(maxDimensionThumbnail, true, inputFilePath, `${outputFilePath}-thumbnail.avif`, 40, file);
