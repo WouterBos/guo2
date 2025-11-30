@@ -5,7 +5,7 @@ import css from "./Footer.module.css";
 const Footer: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   ...props
 }) => {
-  return <div className={ css.root } {...props}>{props.children}</div>;
+  return <footer className={ css.root } {...props}>{props.children}</footer>;
 };
 
 export default Footer;

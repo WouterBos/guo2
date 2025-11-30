@@ -7,10 +7,13 @@ function App() {
   return (
     <>
       <Header />
-      <Gallery data={images} />
+      <main>
+        <Gallery data={images} />
+      </main>
       <Footer style={{ flexGrow: 1 }}>
         <p>
-          All photos on this website are free to use but not to sell.<br />
+          All photos on this website are free to use but not to sell.
+          <br />
           This website is <a href="https://github.com/WouterBos/guo2">built with GUOS</a>.<br />
           <a href="mailto:wouter@bososs.nl">wouter@bososs.nl</a>
         </p>
