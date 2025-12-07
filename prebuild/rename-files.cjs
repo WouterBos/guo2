@@ -10,7 +10,7 @@ fs.readdir(directoryPath, (err, files) => {
     }
 
     files.forEach((file) => {
-        const newFileName = file.replace(/Full_S\d_/, '');
+        const newFileName = file.replace(/Full_(S\d|★+)_/, '');
 
         if (newFileName !== file) {
             const oldFilePath = path.join(directoryPath, file);
