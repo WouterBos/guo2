@@ -51,3 +51,4 @@ next-env.d.ts
 !/public/photos/20250309_0048*
 !/public/photos/20250309_0081*
 /dist/
+deploy-credentials.json

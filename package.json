@@ -4,13 +4,15 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite",
     "build": "npm run lint && npm run prebuild && vite build && rsync .htaccess ./dist/ && rm -f ./dist/photos/*.txt",
-    "lint": "eslint . && npx stylelint 'src/**/*.css'",
+    "deploy": "node ./deploy-root.cjs && node ./deploy-assets.cjs && node ./deploy-photos.cjs",
+    "deploy-site": "node ./deploy-root.cjs && node ./deploy-assets.cjs",
     "lint:fix": "eslint . --fix && npx stylelint 'src/**/*.css' --fix",
-    "preview": "vite preview",
+    "lint": "eslint . && npx stylelint 'src/**/*.css'",
     "prebuild": "node prebuild/rename-files.cjs && node prebuild/convert-images.cjs && node prebuild/create-json.cjs",
+    "preview": "vite preview",
     "rebuild": "node prebuild/rename-files.cjs && node prebuild/convert-images.cjs rebuild && node prebuild/create-json.cjs",
+    "start": "vite",
     "test:a11y": "axe http://localhost:5173/groetenuitoss/"
   },
   "dependencies": {
@@ -27,6 +29,7 @@
     "eslint": "^9.21.0",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
+    "ftp-deploy": "^2.4.7",
     "globals": "^15.15.0",
     "sharp": "^0.33.5",
     "stylelint": "^16.18.0",
