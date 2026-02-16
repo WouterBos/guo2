@@ -19,7 +19,7 @@ export const Selected: React.FC<{ code: string; description: string }> = ({ code
           initial={variants.hidden}
           animate={variants.visible}
           exit={variants.hidden}
-          style={{ width: 'fit-content', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+          style={{ maxHeight: '100vh', overflow: 'auto', width: 'fit-content', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
         >
           <img src={`/groetenuitoss/photos/${code}.avif`} alt={description} />
           <div className={css.description}>
