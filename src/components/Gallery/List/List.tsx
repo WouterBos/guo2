@@ -32,7 +32,7 @@ export const List: React.FC<{
               tabIndex={0}
               aria-label={`Click to view photo. ${value}`}
             >
-              <img src={`/groetenuitoss/photos/${key}-thumbnail.avif`} title={value} alt={value} loading="lazy" />
+              <img src={`/groetenuitoss/photos/${key}-thumbnail.avif`} alt={value} loading="lazy" />
               <div className={css.code} aria-hidden>{key}</div>
             </div>
           </li>

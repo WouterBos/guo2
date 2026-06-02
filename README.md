@@ -10,7 +10,8 @@ The purpose of the website:
 Features:
 - Works on both mobile and desktop.
 - Find an image by code by using the browser's page search.
-- Fast.
+- Accessible for all users (WCAG 2.2).
+- Light and fast.
 
 Limits:
 - This website is meant to showcase your best images, not your complete collection of 10.000+ images. Both the tech and the user won't handle such a large number of images.
