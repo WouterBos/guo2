@@ -1,16 +1,19 @@
 # GUOS photo gallery website generator
 
-With GUOS, you can generate a minimal photo gallery website.
+With GUOS, you can generate a minimal photo gallery website. It is a personal project but can easily be adjusted to your own needs **if** you have some web development knowledge.
 
 The purpose of the website:
 
 - Show visitors a quick overview of your (recent) creative work.
-- Store hires images in a separate folder with image descriptions in a seperate folder. This way, the photos are stored in a future proof format.
+- The website has a specific workflow that will not only produce a website but also a very basic documentation of you portfolio: hires images are stored together with a description file. It's very basic but because of that very future proof documentation.
 
 Features:
 - Works on both mobile and desktop.
 - Find an image by code by using the browser's page search.
 - Fast.
+
+Limits:
+- This website is meant to showcase your best images, not your complete collection of 10.000+ images. Both the tech and the user won't handle such a large number of images.
 
 For demo, check out [Groeten uit Oss website](https://bososs.nl/groetenuitoss/).
 
@@ -26,7 +29,7 @@ For demo, check out [Groeten uit Oss website](https://bososs.nl/groetenuitoss/).
 
 ## Auto publish
 
-Running `npm run deploy` will deploy the built files in the `dist` folder to the webserver.
+Run `npm run build` to build the website files. These files will be saved in the `dist` folder. Then run `npm run deploy` to deploy the website files to the webserver.
 
 ### Configuration
 
@@ -43,7 +46,7 @@ First, you need to create a file called `deploy-credentials.json` in the root of
 }
 ```
 
-The deploy wil ONLY upload this year's photo's. This is because it uses `ftp-deploy` which cannot ignore existing files. To curtail bandwidth waste only this year's photos are automatically uploaded. Alternatively you can run `npm run deploy-site` to ignore the photos folder during the deploy process.
+The script can't detect if images are already uploaded so it will ONLY upload recent photos to save bandwidth. You can configure the maximum age of the images in `package.json`. If you only changed website code and not the images, you can run `npm run deploy-site` to only upload the website code.
 
 ## ⚠️ This project makes a few assumptions
 

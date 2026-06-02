@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "npm run lint && npm run prebuild && vite build && rsync .htaccess ./dist/ && rm -f ./dist/photos/*.txt",
-    "deploy": "node ./deploy-root.cjs && node ./deploy-assets.cjs && node ./deploy-photos.cjs",
+    "deploy": "node ./deploy-root.cjs && node ./deploy-assets.cjs && node ./deploy-photos.cjs --days=10",
     "deploy-site": "node ./deploy-root.cjs && node ./deploy-assets.cjs",
     "lint:fix": "eslint . --fix && npx stylelint 'src/**/*.css' --fix",
     "lint": "eslint . && npx stylelint 'src/**/*.css'",

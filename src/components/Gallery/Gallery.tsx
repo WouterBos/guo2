@@ -22,6 +22,30 @@ const Gallery: React.FC<GalleryProps> = ({ data }) => {
     }
   }, [data]);
 
+  useEffect(() => {
+    const keys = Object.keys(data);
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+        setSelectedKey((current) => {
+          const index = keys.indexOf(current);
+          if (e.key === "ArrowLeft" && index > 0) {
+            const newKey = keys[index - 1];
+            window.history.replaceState(null, "", `#photo${newKey}`);
+            return newKey;
+          }
+          if (e.key === "ArrowRight" && index < keys.length - 1) {
+            const newKey = keys[index + 1];
+            window.history.replaceState(null, "", `#photo${newKey}`);
+            return newKey;
+          }
+          return current;
+        });
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [data]);
+
   return (
     <Root>
       <Selected code={selectedKey} description={data[selectedKey]} />

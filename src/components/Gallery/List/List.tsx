@@ -9,7 +9,7 @@ export const List: React.FC<{
 }> = ({ images, selected, updateSelected }) => {
   const handleClick = (key: string) => {
     updateSelected(key);
-    window.history.pushState(null, "", `#photo${key}`);
+    window.history.replaceState(null, "", `#photo${key}`);
   };
 
   return (
