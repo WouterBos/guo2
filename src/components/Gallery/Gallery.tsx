@@ -24,6 +24,16 @@ const Gallery: React.FC<GalleryProps> = ({ data }) => {
 
   useEffect(() => {
     const keys = Object.keys(data);
+    const index = keys.indexOf(selectedKey);
+    const toPreload = [keys[index - 1], keys[index + 1]].filter(Boolean);
+    toPreload.forEach((key) => {
+      const img = new Image();
+      img.src = `/groetenuitoss/photos/${key}.avif`;
+    });
+  }, [selectedKey, data]);
+
+  useEffect(() => {
+    const keys = Object.keys(data);
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
         setSelectedKey((current) => {
