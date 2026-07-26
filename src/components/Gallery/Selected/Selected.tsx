@@ -22,9 +22,9 @@ export const Selected: React.FC<{ code: string; description: string }> = ({ code
           style={{ maxHeight: '100vh', overflow: 'auto', width: 'fit-content', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
         >
           <img src={`/groetenuitoss/photos/${code}.avif`} alt={description} />
-          <div className={css.description}>
-            <span className={css.descriptionText}>{description}</span>
-            <div>{code}</div>
+          <div className={css.description} id="selected-description">
+            <span className={css.descriptionText} id="selected-description-text">{description}</span>
+            <div id="selected-code">{code}</div>
           </div>
         </motion.div>
       </AnimatePresence>

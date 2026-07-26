@@ -35,6 +35,17 @@ const Gallery: React.FC<GalleryProps> = ({ data }) => {
   useEffect(() => {
     const keys = Object.keys(data);
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.shiftKey && e.key === "C") {
+        const text = document.getElementById("selected-code")?.textContent?.trim() ?? "";
+        navigator.clipboard.writeText(text);
+        return;
+      }
+      if (e.shiftKey && e.key === "D") {
+        const desc = document.getElementById("selected-description-text")?.textContent?.trim() ?? "";
+        const code = document.getElementById("selected-code")?.textContent?.trim() ?? "";
+        navigator.clipboard.writeText(`${desc}\n${code}`);
+        return;
+      }
       if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
         setSelectedKey((current) => {
           const index = keys.indexOf(current);
